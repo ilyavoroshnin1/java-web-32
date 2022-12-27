@@ -1,0 +1,237 @@
+body {
+    background-color: lightgrey;
+}
+
+#title {
+    background-color: white;
+    border: solid;
+    text-align: center;
+    width: 70%;
+}
+
+.header {
+    display: flex;
+}
+
+.center {
+    width: 70%;
+
+
+}
+
+.main {
+    margin-top: 30px;
+    display: flex;
+}
+
+/* индекс начало */
+
+.index {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* индекс конец */
+
+/* К титульной странице начало*/
+
+.center-title {
+    width: 70%;
+    display: flex;
+}
+
+#left-button {
+    margin-top: 40px;
+    text-align: left;
+}
+
+#center-button {
+    margin-top: 40px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#right-button {
+    margin-top: 40px;
+    text-align: right;
+}
+
+/* К титульной странице конец*/
+
+.left-side {
+    width: 15%;
+    display: flex;
+}
+
+.right-side {
+    width: 15%;
+}
+.blue-button {
+    text-align: left;
+    padding-left: 10px;
+
+}
+
+.logout {
+    margin-top: auto;
+}
+
+/* Форма */
+
+.form {
+    display: block;
+    width: 50%;
+    text-align: right;
+}
+
+.grey-button {
+    border: solid 1px;
+    width: 100px;
+    text-align: center;
+    background-color: darkgray;
+    margin-left: 16%;
+}
+
+.form-term {
+    margin-top: 20px;
+    display: flex;
+    width: 60%;
+    text-align: right;
+}
+
+.left-part {
+    width: 200px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.grey-button-discipline {
+    border: solid 1px;
+    width: 100px;
+    text-align: center;
+    background-color: darkgray;
+    margin-top: 15px;
+    margin-left: 25.5%;
+}
+
+.error {
+    color: red;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* кнопки в центральном блоке студенческого листа*/
+
+.center-top-buttons {
+    display: flex;
+}
+
+.grey-button-top {
+    border: solid 1px;
+    height: 30px;
+    width: 400px;
+    text-align: center;
+    background-color: darkgray;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.text {
+    font-size: 22px;
+}
+/* таблица */
+
+/* внешние границы таблицы серого цвета толщиной 1px */
+table {
+    margin-top: 10px;
+    border: 1px solid dimgray;
+    border-collapse: collapse;
+    width: 100%;
+    height: 400px;
+ }
+ /* границы ячеек первого ряда таблицы */
+ th {
+    padding-top: 60px;
+    padding-bottom: 20px;
+    border: 1px solid dimgrey;
+ }
+ /* границы ячеек тела таблицы */
+ td {
+    border: 1px solid dimgrey;
+ }
+
+.thead {
+    background-color: darkgray;
+}
+
+.center-second-table {
+    margin-top: 15px;
+    margin-right: 15px;
+    display: flex;
+}
+
+table.table-progress{
+    padding-top: 10px;
+    height: 100px;
+}
+
+table.table-progress th{
+    padding-top: 10px;
+}
+
+table.table-progress td{
+    padding-top: 10px;
+}
+
+.grey-button-list {
+    margin-top: 10px;
+    border: solid 1px;
+    width: 200px;
+    text-align: center;
+    background-color: darkgray;
+    margin-left: 16%;
+    font-weight: bold;
+}
+
+table.table-discipline{
+    height: 100px;
+}
+
+table.table-discipline th{
+    padding-top: 15px;
+    height: 100px;
+}
+
+table.table-discipline td{
+    padding-top: 10px;
+    height: 100px;
+}
+
+table.table-discipline th:nth-child(1) {
+    width: 140px;
+}
+
+table.table-discipline th:nth-child(2) {
+    width: 600px;
+}
+
+table.table-term-list{
+    height: 100px;
+}
+
+table.table-term-list th{
+    padding-top: 15px;
+    height: 100px;
+}
+
+table.table-term-list td{
+    padding-top: 10px;
+    height: 100px;
+}
+
+table.table-term-list th:nth-child(1) {
+    width: 600px;
+}
