@@ -15,14 +15,14 @@ public class DBServices implements IDBServices {
     public List<Discipline> getAllActiveDisciplines() {
         ArrayList<Discipline> disciplines = new ArrayList<>();
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver"); // начинает раб-ть менедж. драйверов (в скобках название драйвера)
             Connection conn = DriverManager.getConnection(Constants.URL_TO_DB, Constants.LOGIN_TO_DB,
-                    Constants.PASSWORD_TO_DB);
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from discipline where status = '1'");
+                    Constants.PASSWORD_TO_DB); // соединение с БД
+            Statement stmt = conn.createStatement(); // создаем стейтмент для обращения в БД
+            ResultSet rs = stmt.executeQuery("select * from discipline where status = '1'"); // метод "executeQuery" выз-ся у "stmt" для получения рез-та при запросе в БД
             while (rs.next()) {
                 Discipline discipline = new Discipline();
-                discipline.setId(rs.getInt("id"));
+                discipline.setId(rs.getInt("id")); // "rs"- сюда сохр-ся ответ на запрос. "rs.getInt"-достаем у rs в инте значение "id"
                 discipline.setDiscipline(rs.getString("discipline"));
                 disciplines.add(discipline);
             }
@@ -157,7 +157,7 @@ public class DBServices implements IDBServices {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(Constants.URL_TO_DB, Constants.LOGIN_TO_DB, Constants.PASSWORD_TO_DB);
             Statement stmt = conn.createStatement();
-            stmt.execute("UPDATE `student` SET `surname` = '"+newSurname+"', `name` = '"+newName+"', `group` = '"+newGroup+"', `date` = '"+newDate+"' WHERE (`id` = '"+id+"')");
+            stmt.execute("UPDATE `student` SET `surname` = '" + newSurname + "', `name` = '" + newName + "', `group` = '" + newGroup + "', `date` = '" + newDate + "' WHERE (`id` = '" + id + "')");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -170,7 +170,7 @@ public class DBServices implements IDBServices {
             Connection conn = DriverManager.getConnection(Constants.URL_TO_DB, Constants.LOGIN_TO_DB,
                     Constants.PASSWORD_TO_DB);
             Statement stmt = conn.createStatement();
-            stmt.execute("UPDATE `student` SET `status` = '0' WHERE (`id` = '"+id+"');");
+            stmt.execute("UPDATE `student` SET `status` = '0' WHERE (`id` = '" + id + "');");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -207,13 +207,13 @@ public class DBServices implements IDBServices {
             Statement stmt = conn.createStatement(); //создаем запрос
             ResultSet rs = stmt.executeQuery("SELECT * FROM term_discipline as td\n" +
                     "left join discipline as d on td.id_discipline = d.id\n" +
-                    "where d.status = '1' and td.id_term = " + idTerm );
+                    "where d.status = '1' and td.id_term = " + idTerm);
 
             while (rs.next()) {
-              Discipline discipline = new Discipline();
-              discipline.setId(rs.getInt("id_discipline"));
-              discipline.setDiscipline(rs.getString("discipline"));
-              disciplines.add(discipline);
+                Discipline discipline = new Discipline();
+                discipline.setId(rs.getInt("id_discipline"));
+                discipline.setDiscipline(rs.getString("discipline"));
+                disciplines.add(discipline);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -228,7 +228,7 @@ public class DBServices implements IDBServices {
 
     @Override
     public Term getTermById(String id) {
-                try {
+        try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(Constants.URL_TO_DB, Constants.LOGIN_TO_DB, Constants.PASSWORD_TO_DB);
             Statement stmt = conn.createStatement();
@@ -288,7 +288,7 @@ public class DBServices implements IDBServices {
             Statement stmt = conn.createStatement(); //создаем запрос
             ResultSet rs = stmt.executeQuery("SELECT * FROM user_role as ur\n" +
                     "LEFT JOIN user as u on ur.id_user = u.id\n" +
-                    "WHERE u.login = '" +login + "' and u.password = '" + password + "'and ur.id_role = " + idRole);
+                    "WHERE u.login = '" + login + "' and u.password = '" + password + "'and ur.id_role = " + idRole);
 
             while (rs.next()) {
                 return true;

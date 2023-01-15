@@ -29,7 +29,7 @@
     <div class="main">
         <div class="left-side blue-button">
             <div class="blue-button"><a href="/">На главную</a></div>
-            <div class="blue-button"><a href="./students_list.html">Назад</a></div>
+            <div class="blue-button"><a href="/students">Назад</a></div>
         </div>
         <div class="center">
             <b>Для создания студента заполните все поля и нажмите кнопку "Создать".</b>

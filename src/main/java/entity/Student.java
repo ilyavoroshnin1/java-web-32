@@ -20,7 +20,7 @@ public class Student {
         this.group = group;
         this.date = date;
     }
-
+    
     public int getId() {
         return id;
     }

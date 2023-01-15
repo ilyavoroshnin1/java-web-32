@@ -1,7 +1,7 @@
 function deleteStudents(){
     var checkedCheckboxs = document.querySelectorAll('input[name=idStud]:checked')
     if (checkedCheckboxs.length == 0){
-        alert("Выберите хотя бы одного студента, пожалуйста!!!")
+        alert("Выберите хотя бы одного студента, пожалуйста!!!");
         return;
     }
 
@@ -17,14 +17,14 @@ function deleteStudents(){
 
 
 function modifyStudents(){
-    var checkedCheckboxs = document.querySelectorAll('input[name=idStud]:checked')
+    var checkedCheckboxs = document.querySelectorAll('input[name=idStud]:checked');
     if (checkedCheckboxs.length == 0){
-        alert("Выберите одного студента, пожалуйста!!!")
+        alert("Выберите одного студента, пожалуйста!!!");
         return;
     }
 
     if (checkedCheckboxs.length > 1){
-        alert("Выберите ТОЛЬКО ОДНОГО студента, пожалуйста!!!")
+        alert("Выберите ТОЛЬКО ОДНОГО студента, пожалуйста!!!");
         return;
     }
 

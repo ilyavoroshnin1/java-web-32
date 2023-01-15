@@ -40,9 +40,9 @@
                 </div>
                 <div>
                     <c:if test="${role eq 1}">
-                    <form action="/student-create" method="get">
-                        <input type="submit" value="Создать студента" class="grey-button-top"/>
-                    </form>
+                        <form action="/student-create" method="get">
+                            <input type="submit" value="Создать студента" class="grey-button-top"/>
+                        </form>
                     </c:if>
                 </div>
             </div>

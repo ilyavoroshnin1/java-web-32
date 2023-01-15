@@ -24,7 +24,7 @@ public class StudentCreateController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String surname = req.getParameter("surname");
+        String surname = req.getParameter("surname"); //вытягиваем из "student-create" то, что польз. введет в 4е графы
         String name = req.getParameter("name");
         String group = req.getParameter("group");
         String date = req.getParameter("date");
@@ -49,6 +49,6 @@ public class StudentCreateController extends HttpServlet {
         String dateToDataBase = formatter.format(dateFromUser);
 
         dataBase.createStudent(surname, name, group, dateToDataBase); // отправляем в БД на сохранение
-        resp.sendRedirect("/students");
+        resp.sendRedirect("/students"); // перенаправление на контроллер! а не на страницу
     }
 }

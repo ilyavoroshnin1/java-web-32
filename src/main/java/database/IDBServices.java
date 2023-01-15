@@ -4,7 +4,7 @@ import entity.*;
 
 import java.util.List;
 
-public interface IDBServices {  // 1
+public interface IDBServices {
 
     List<Discipline> getAllActiveDisciplines();
 
@@ -43,5 +43,3 @@ public interface IDBServices {  // 1
     boolean canLogin(String login, String password, String idRole);
 }
 
-// 24 урок
-// 1 - создаем интерфейс
