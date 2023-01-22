@@ -13,9 +13,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
-        $( function() {
-            $( "#datepicker" ).datepicker();
-        } );
+        $(function () {
+            $("#datepicker").datepicker();
+        });
     </script>
     <title>Система управления студентами и их успеваемостью</title>
 </head>
@@ -35,7 +35,10 @@
         </c:choose></span></div>
     </div>
     <div class="main">
-        <div class="left-side blue-button"><div class="blue-button"><a href="/">На главную</a></div><div class="blue-button"><a href="/students">Назад</a></div></div>
+        <div class="left-side blue-button">
+            <div class="blue-button"><a href="/">На главную</a></div>
+            <div class="blue-button"><a href="/students">Назад</a></div>
+        </div>
         <div class="center">
             <b>Для модификации введите новые значения и нажмите кнопку "Применить".</b>
             <form method="post" action="/student-modify">
@@ -44,9 +47,13 @@
                     <p>Фамилия <input value="${student.surname}" name="surname" type="text" size="40"></p>
                     <p>Имя <input value="${student.name}" name="name" type="text" size="40"></p>
                     <p>Группа <input value="${student.group}" name="group" type="text" size="40"></p>
-                    <p>Дата поступления <input id="datepicker" value="<f:formatDate value="${student.date}" pattern="dd/MM/yyyy"/>" name="date" type="text" size="40"></p>
+                    <p>Дата поступления <input id="datepicker"
+                                               value="<f:formatDate value="${student.date}" pattern="dd/MM/yyyy"/>"
+                                               name="date" type="text" size="40"></p>
                 </div>
-                <div><input type="submit" value="Применить" class="grey-button"/><div style="width: 299px;"></div></div>
+                <div><input type="submit" value="Применить" class="grey-button"/>
+                    <div style="width: 299px;"></div>
+                </div>
             </form>
 
         </div>

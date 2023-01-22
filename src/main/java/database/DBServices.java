@@ -248,14 +248,66 @@ public class DBServices implements IDBServices {
         return null;
     }
 
+    // !!!!   ПРОВЕРИТЬ   !!!!
     @Override
     public void modifyTerm(String id, String newDuration, String newIdsDisciplines) {
+        String[] ids = newIdsDisciplines.split(" ");
+//        newDuration = durationWithPeriod(newDuration);
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(Constants.URL_TO_DB, Constants.LOGIN_TO_DB, Constants.PASSWORD_TO_DB);
+            Statement stmt = conn.createStatement();
+            stmt.execute("UPDATE `term` SET duration = '" + newDuration + "' where id = '" + id + "';\n");
+            stmt.execute("DELETE FROM `term_discipline` where id_term = '" + id + "';\n");
+            for (String idDiscipline : ids) {
+                stmt.execute("INSERT INTO `term_discipline` (`id_term`, `id_discipline`) VALUES ('" + id + "', '" + idDiscipline + "');\n");
+            }
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
+    // !!!!   ПРОВЕРИТЬ   !!!!
+    @Override
+    public void deleteTerm(String id) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(Constants.URL_TO_DB, Constants.LOGIN_TO_DB, Constants.PASSWORD_TO_DB);
+            Statement stmt = conn.createStatement();
+            stmt.execute("UPDATE `term` SET status = '0' where id = '" + id + "';\n");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // !!!!   ДОДЕЛАТЬ   !!!!
     @Override
     public List<Ocenka> getOcenkas(String idStudent, String idTerm) {
-        return null;
+        List<Ocenka> ocenkas = new ArrayList<>();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(Constants.URL_TO_DB, Constants.LOGIN_TO_DB, Constants.PASSWORD_TO_DB);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from `ocenka` as m\n" +
+                    "left join `term_discipline` as td on o.id_term_discipline = td.id\n" +
+                    "where o.id_student = '" + idStudent + "' and td.id_term = " + idTerm);
+
+            while (rs.next()) {
+                Ocenka mark = new Ocenka();
+                mark.setId(rs.getInt("id"));
+                mark.setStudent(getStudentById(idStudent));
+                mark.setTerm(getTermById(idTerm));
+                mark.setDiscipline(getDisciplineById(rs.getString("id_term_discipline")));
+                mark.setOcenka(rs.getInt("ocenka"));
+                ocenkas.add(mark);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ocenkas;
     }
 
     @Override

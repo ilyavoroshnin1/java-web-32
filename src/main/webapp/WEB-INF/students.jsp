@@ -36,7 +36,8 @@
         <div class="center">
             <div class="center-top-buttons">
                 <div>
-                    <button class="grey-button-top">Просмотреть успеваемость выбранных студентов</button>
+                    <input type="submit" onclick="studentProgress()"
+                           value="Просмотреть успеваемость выбранных студентов" class="grey-button-top"/>
                 </div>
                 <div>
                     <c:if test="${role eq 1}">
@@ -53,7 +54,7 @@
                                value="Модифицировать выбранного студента"/>
                     </div>
                     <div>
-                        <input tipe="submit" onclick="deleteStudents()" class="grey-button-top"
+                        <input type="submit" onclick="deleteStudents()" class="grey-button-top"
                                value="Удалить выбранных студентов"/>
                     </div>
                 </div>
@@ -99,9 +100,7 @@
 <form action="/student-modify" method="get" id="formModify">
     <input type="hidden" value="" id="hiddenModify" name="hiddenModify">
 </form>
-
+<form action="/student-progress" method="get" id="formProgress">
+    <input type="hidden" value="" id="idStudentProgress" name="idStudentProgress">
+</form>
 </body>
-
-
-
-

@@ -36,6 +36,8 @@ public interface IDBServices {
 
     void modifyTerm(String id, String newDuration, String newIdsDisciplines);
 
+    void deleteTerm(String id);
+
     List<Ocenka> getOcenkas(String idStudent, String idTerm);
 
     List<Role> getAllActiveRoles();
