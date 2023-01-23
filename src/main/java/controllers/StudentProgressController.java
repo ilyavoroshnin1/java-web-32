@@ -32,14 +32,14 @@ public class StudentProgressController extends HttpServlet {
             if(terms.size() != 0) {
                 Term selectedTerm = terms.get(0);
                 req.setAttribute("selectedTerm", selectedTerm);
-                List <Ocenka> marks = services.getOcenkas(idStudent, selectedTerm.getId() + "");
-                req.setAttribute("marks", marks);
+                List <Ocenka> ocenkas = services.getOcenkas(idStudent, selectedTerm.getId() + "");
+                req.setAttribute("ocenkas", ocenkas);
             }
         } else {
             Term selectedTerm = services.getTermById(idSelectedTerm);
             req.setAttribute("selectedTerm", selectedTerm);
-            List <Ocenka> marks = services.getOcenkas(idStudent, selectedTerm.getId() + "");
-            req.setAttribute("marks", marks);
+            List <Ocenka> ocenkas = services.getOcenkas(idStudent, selectedTerm.getId() + "");
+            req.setAttribute("ocenkas", ocenkas);
         }
 
         req.getRequestDispatcher("WEB-INF/student-progress.jsp").forward(req, resp);

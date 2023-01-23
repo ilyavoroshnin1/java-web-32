@@ -132,7 +132,7 @@ function studentProgress() {
 
 
 function getAverageMark() {
-    var allMarks = document.querySelectorAll('[name=mark]');
+    var allMarks = document.querySelectorAll('[name=ocenka]');
     console.log(allMarks);
     var averageMark = 0;
     var sumOfMarks = 0;

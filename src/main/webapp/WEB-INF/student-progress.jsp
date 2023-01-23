@@ -64,11 +64,11 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${marks}" var="m">
+                            <c:forEach items="${ocenkas}" var="o">
                                 <tr>
-                                    <td style="display: none">${m.id}</td>
-                                    <td>${m.discipline.discipline}</td>
-                                    <td name="mark">${m.mark}</td>
+                                    <td style="display: none">${o.id}</td>
+                                    <td>${o.discipline.discipline}</td>
+                                    <td name="ocenka">${o.ocenka}</td>
                                 </tr>
                             </c:forEach>
                             </tbody>
@@ -78,9 +78,11 @@
                 <div>
                     <div class="center-second-table">
                         <div style="margin-left: 15px; margin-right: 15px;"><b>Выбрать семестр </b></div>
-                        <div>
-                            <form method="get" action="/student-progress">
-                                <input type="hidden" value="${student.id}" name="idStudentProgress" id="idStudentProgress">
+
+                        <form method="get" action="/student-progress">
+                            <div>
+                                <input type="hidden" value="${student.id}" name="idStudentProgress"
+                                       id="idStudentProgress">
                                 <select name="idSelectedTerm" size="1">
                                     <c:forEach items="${terms}" var="t">
                                         <c:choose>
@@ -95,11 +97,11 @@
                                         </c:choose>
                                     </c:forEach>
                                 </select>
-                        </div>
-                        <div>
-                            <input type="submit" class="grey-button" value="Выбрать"/>
-                        </div>
-                                  </form>
+                            </div>
+                            <div style="margin: -19px 0 0 100px">
+                                <input type="submit" class="grey-button" value="Выбрать"/>
+                            </div>
+                        </form>
                     </div>
                     <div style="margin-left: 15px; margin-right: 15px; margin-top: 15px;"><b>Средняя оценка за
                         семестр: </b><b id="averageMark"></b></div>
