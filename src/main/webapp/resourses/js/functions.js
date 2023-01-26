@@ -28,12 +28,7 @@ function modifyStudents(){
         return;
     }
 
-    var ids = "";
-    for (var i = 0; i < checkedCheckboxs.length; i++){
-        ids = ids + checkedCheckboxs[i].value + " ";
-    }
-
-    document.getElementById("hiddenModify").value = ids;
+    document.getElementById("hiddenModify").value = checkedCheckboxs[0].value;
     document.getElementById('formModify').submit();
 }
 

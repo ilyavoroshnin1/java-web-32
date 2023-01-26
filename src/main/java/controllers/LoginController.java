@@ -34,7 +34,7 @@ public class LoginController extends HttpServlet {
             req.getSession().setAttribute("login", login);
             resp.sendRedirect("/");
         }else {
-            req.setAttribute("Error", "2");
+            req.setAttribute("Error", "2"); // расписано в файле "login" в конце
             req.getRequestDispatcher("WEB-INF/login.jsp").forward(req, resp);
         }
     }

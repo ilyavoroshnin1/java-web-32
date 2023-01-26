@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../resourses/css/styles.css">
-    <script src="../resourses/js/functions.js"></script>
+    <script src="../resourses/js/functions.js?v=31"></script>
     <title>Система управления студентами и их успеваемостью</title>
 </head>
 
@@ -104,14 +104,16 @@
                         </form>
                     </div>
                     <div style="margin-left: 15px; margin-right: 15px; margin-top: 15px;"><b>Средняя оценка за
-                        семестр: </b><b id="averageMark"></b></div>
+                        семестр: </b><b id="averageMark"></b>
+                    </div>
+                    <script>
+                        getAverageMark()
+                    </script>
                 </div>
             </div>
             <div class="right-side blue-button"><span></span></div>
         </div>
     </div>
 </div>
-<script>
-    getAverageMark()
-</script>
+
 </body>

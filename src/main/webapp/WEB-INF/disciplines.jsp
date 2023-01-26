@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../resourses/css/styles.css">
-    <script src="../resourses/js/functions.js"></script>
+    <script src="../resourses/js/functions.js?v=21"></script>
     <title>Система управления студентами и их успеваемостью</title>
 </head>
 
@@ -61,7 +61,7 @@
                             <input type="submit" value="Создать дисциплину..." class="grey-button-list"/>
                         </form>
                         <div><input type="submit" onclick="modifyDiscipline()"
-                                    value="Модифицировать выранную дисциплину..." class="grey-button-list"/></div>
+                                    value="Модифицировать выбранную дисциплину..." class="grey-button-list"/></div>
                         <div><input type="submit" onclick="deleteDisciplines()" value="Удалить выбранную дисциплину..."
                                     class="grey-button-list"/></div>
                     </div>

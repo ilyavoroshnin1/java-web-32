@@ -72,7 +72,7 @@ public class DBServices implements IDBServices {
             Connection conn = DriverManager.getConnection(Constants.URL_TO_DB, Constants.LOGIN_TO_DB,
                     Constants.PASSWORD_TO_DB);
             Statement stmt = conn.createStatement();
-            stmt.execute("UPDATE discipline SET discipline = " + newDiscipline + " WHERE (id = " + id + ");\n");
+            stmt.execute("UPDATE `discipline` SET `discipline` = '" + newDiscipline + "' WHERE (id = " + id + ");\n");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -221,9 +221,37 @@ public class DBServices implements IDBServices {
         return disciplines;
     }
 
+    //  ПРОВЕРИТЬ!!!  //
     @Override
     public void createTerm(String duration, String idsDisciplines) {
+        DBServices database = new DBServices();
+        List<Term> terms = database.getAllActiveTerms();
+        Term lastTerm = null;
+        String lastTermFullName = null;
+        String newTermName = null;
+        String newTermNum = null;
+        String newTermFullName = "Семестр 1";
+        if (terms.size() != 0) {
+            lastTerm = terms.get(terms.size() - 1);
+            lastTermFullName = lastTerm.getTerm();
+            newTermName = lastTermFullName.split(" ")[0];
+            newTermNum = "" + (Integer.parseInt(lastTermFullName.split(" ")[1]) + 1);
+            newTermFullName = newTermName + " " + newTermNum;
 
+        }
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(Constants.URL_TO_DB, Constants.LOGIN_TO_DB, Constants.PASSWORD_TO_DB);
+            Statement stmt = conn.createStatement();
+            stmt.execute("INSERT INTO `term` (`term`, `duration`) VALUES ('" + newTermFullName + "', '" + duration + "');\n");
+            terms = database.getAllActiveTerms();
+            String newTermId = "" + (terms.get(terms.size() - 1).getId());
+            for (String idDiscipline : idsDisciplines.split(" ")) {
+                stmt.execute("INSERT INTO `term_discipline` (`id_term`, `id_discipline`) VALUES ('" + newTermId + "', '" + idDiscipline + "');\n");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -290,7 +318,7 @@ public class DBServices implements IDBServices {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(Constants.URL_TO_DB, Constants.LOGIN_TO_DB, Constants.PASSWORD_TO_DB);
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from `ocenka` as m\n" +
+            ResultSet rs = stmt.executeQuery("select * from `ocenka` as o\n" +
                     "left join `term_discipline` as td on o.id_term_discipline = td.id\n" +
                     "where o.id_student = '" + idStudent + "' and td.id_term = " + idTerm);
 

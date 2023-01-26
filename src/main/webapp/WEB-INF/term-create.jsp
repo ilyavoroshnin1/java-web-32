@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../resourses/css/styles.css">
-    <script src="../resourses/js/functions.js"></script>
+    <script src="../resourses/js/functions.js?v=5"></script>
     <title>Система управления студентами и их успеваемостью</title>
 </head>
 
