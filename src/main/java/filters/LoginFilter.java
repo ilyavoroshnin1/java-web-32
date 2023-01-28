@@ -14,7 +14,7 @@ public class LoginFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        // прописываем здес все ситуации
+        // прописываем здесь все ситуации
         // 1 - пользователь не залогинен и идет на /login
         // 2 - пользователь не залогинен и идет по любой другой ссылке
         // 3 - проверка картинок и файлов css для отображения страницы, которые подгружаются также через фильтр
