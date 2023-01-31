@@ -25,7 +25,7 @@ public class LoginFilter implements Filter {
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
 
         // 3
-        String url = req.getRequestURI(); // получится вытянуть либо /login, /adasd.jpeg (картинка)
+        String url = req.getRequestURI(); // пользователь по данному урл что-то вытягивает: либо /login, /adasd.jpeg (картинка)
         if (url.endsWith(".css") || url.endsWith(".js")) {
             filterChain.doFilter(servletRequest, servletResponse);
             return;

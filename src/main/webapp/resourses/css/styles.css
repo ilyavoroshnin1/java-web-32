@@ -235,3 +235,22 @@ table.table-term-list td{
 table.table-term-list th:nth-child(1) {
     width: 600px;
 }
+
+.testAcc {
+    margin-top: 355px;
+    margin-left: 550px;
+    position: fixed;
+}
+
+.buttonTestAcc {
+    border: outset;
+    background-color: darkgray;
+    cursor: pointer;
+    padding: 2px 33px;
+}
+
+.listTestAcc {
+    border: 1px;
+    padding: 1px 8px;
+    background-color: gainsboro;
+}
