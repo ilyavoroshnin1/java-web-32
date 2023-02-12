@@ -16,7 +16,7 @@ public class EncodingFilter implements Filter {
         // установим здесь загрузку русского языка и чтобы он отраб. перед каждым SERVLETом!
         servletRequest.setCharacterEncoding("UTF-8"); // делаем кодировку двум объектам
         servletResponse.setCharacterEncoding("UTF-8");
-        filterChain.doFilter(servletRequest,servletResponse); // метод у объекта для передачи управления либо на дальнейший фильтр, либо сервлет
+        filterChain.doFilter(servletRequest, servletResponse); // метод у объекта для передачи управления либо на дальнейший фильтр, либо сервлет
 
         // кол можно писать над "filterChain" и под.
         // если НАД - этот код отрабатывает, когда servletRequest и servletResponse идут ОТ ПОЛЬЗОВАТЕЛЯ К СЕРВЛЕТУ

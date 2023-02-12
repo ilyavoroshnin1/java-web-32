@@ -4,13 +4,11 @@ function deleteStudents(){
         alert("Выберите хотя бы одного студента, пожалуйста!!!");
         return;
     }
-
     // 1 4 6 9 - будет примерно такая строка
     var ids = "";
     for (var i = 0; i < checkedCheckboxs.length; i++){
         ids = ids + checkedCheckboxs[i].value + " ";
     }
-
     document.getElementById("hiddenDelete").value = ids;
     document.getElementById('formDelete').submit();
 }
