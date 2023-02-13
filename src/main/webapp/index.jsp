@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,7 +34,7 @@
             <div id="center-button"><a href="/disciplines">Дисциплины</a></div>
             <div id="right-button"><a href="/terms">Семестры</a></div>
         </div>
-        <div class="right-side blue-button"><span></span></div>
+        <div class="right-side blue-button"></div>
     </div>
 </div>
 </body>
